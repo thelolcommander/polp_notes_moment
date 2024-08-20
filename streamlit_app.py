@@ -25,10 +25,7 @@ st.write(
 uploaded_file = st.file_uploader('Choose your PDF file', type="pdf")
 
 if uploaded_file is not None:
-    extracted_text = extract_text(uploaded_file)
-    
-    st.code(extracted_text,language="markdown")
-    
+    extracted_text = extract_text(uploaded_file)    
     chat_session = model.start_chat(history=[])
 
     try:
