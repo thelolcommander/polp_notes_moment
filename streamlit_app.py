@@ -2,7 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 from pdfminer.high_level import extract_text
 
-api_key = "AIzaSyDYKhQRaQY38yBpH0ZBKpgwMpfSiABgE5c"  # Make sure this API key is correct and valid
+api_key = "AIzaSyDYKhQRaQY38yBpH0ZBKpgwMpfSiABgE5c"  # Ensure this API key is correct and valid
 genai.configure(api_key=api_key)
 
 model = genai.GenerativeModel(
@@ -19,7 +19,7 @@ model = genai.GenerativeModel(
 
 st.title("🎈 My PDF Text Extractor App")
 st.write(
-    "Let's start extracting text from your PDF file! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
+    "Upload a PDF to extract its text and get insights from the AI."
 )
 
 uploaded_file = st.file_uploader('Choose your PDF file', type="pdf")
@@ -31,6 +31,8 @@ if uploaded_file is not None:
     
     chat_session = model.start_chat(history=[])
 
-    response = chat_session.send_message(extracted_text)
-
-    st.text_area("AI Response", response.text, height=300)
+    try:
+        response = chat_session.send_message(extracted_text)
+        st.text_area("AI Response", response.text, height=300)
+    except Exception as e:
+        st.error(f"Error while processing text with AI: {e}")
