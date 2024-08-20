@@ -33,6 +33,6 @@ if uploaded_file is not None:
 
     try:
         response = chat_session.send_message(extracted_text)
-        st.text_area("AI Response", response.text, height=300)
+        st.code(response.text, language="markdown")
     except Exception as e:
         st.error(f"Error while processing text with AI: {e}")
