@@ -27,7 +27,7 @@ uploaded_file = st.file_uploader('Choose your PDF file', type="pdf")
 if uploaded_file is not None:
     extracted_text = extract_text(uploaded_file)
     
-    st.text_area("Extracted Text", extracted_text, height=300)
+    st.code(extracted_text,language="markdown")
     
     chat_session = model.start_chat(history=[])
 
