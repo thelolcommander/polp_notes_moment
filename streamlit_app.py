@@ -14,7 +14,7 @@ model = genai.GenerativeModel(
         "max_output_tokens": 8192,
         "response_mime_type": "text/plain",
     },
-    system_instruction="Generate notes on the given text, the MANDATORY RULES = DO NOT change, remove, or add information\n",
+    system_instruction="Generate notes on the given text, the MANDATORY RULES = DO NOT change, remove, or add information and do not format the text\n",
 )
 
 st.title("🎈 My PDF Text Extractor App")
