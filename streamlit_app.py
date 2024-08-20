@@ -8,13 +8,13 @@ genai.configure(api_key=api_key)
 model = genai.GenerativeModel(
     model_name="gemini-1.5-flash",
     generation_config={
-        "temperature": 0.8,
+        "temperature": 0.5,
         "top_p": 0.95,
         "top_k": 64,
         "max_output_tokens": 8192,
         "response_mime_type": "text/plain",
     },
-    system_instruction="Generate notes on the given text\nRULES:\ndo not add new information and do not remove important details\nreturn without text formatting but you can add \"-\" for bullets",
+  system_instruction="Generate notes on the given text\nRULES:\ndo not add new information and do not remove important details\nreturn as raw text withotu format",
 )
 
 st.title("🎈 My PDF Text Extractor App")
