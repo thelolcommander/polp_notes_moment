@@ -3,7 +3,7 @@ import google.generativeai as genai
 import os
 from pdfminer.high_level import extract_text
 
-genai.configure(api_key=["GEMINI_API_KEY"])
+genai.configure(api_key=["AIzaSyDYKhQRaQY38yBpH0ZBKpgwMpfSiABgE5c"])
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 st.title("🎈 My PDF Text Extractor App")
