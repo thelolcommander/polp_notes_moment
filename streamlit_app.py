@@ -14,7 +14,7 @@ model = genai.GenerativeModel(
         "max_output_tokens": 8192,
         "response_mime_type": "text/plain",
     },
-  system_instruction="Generate notes on the given text\nRULES:\ndo not add new information and do not remove important details\nbut you can add \"-\" for bullets",
+    system_instruction="Generate notes on the given text\nRULES:\ndo not add new information and do not remove important details\nbut you can add \"-\" for bullets",
 )
 
 st.title("🎈 My PDF Text Extractor App")
@@ -36,6 +36,7 @@ if uploaded_file is not None:
         response = chat_session.send_message(extracted_text)
         
         st.subheader("AI Response")
+        # Use HTML to ensure the response is rendered as plain text without Markdown
         st.markdown(f'<pre>{response.text}</pre>', unsafe_allow_html=True)
     except Exception as e:
         st.error(f"Error while processing text with AI: {e}")
