@@ -30,6 +30,6 @@ if uploaded_file is not None:
 
     try:
         response = chat_session.send_message(extracted_text)
-        st.code(response.text, language="markdown")
+        st.markdown("Generated Notes:\n"response.text, unsafe_allow_html=True)
     except Exception as e:
         st.error(f"Error while processing text with AI: {e}")
