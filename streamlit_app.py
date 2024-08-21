@@ -2,7 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 from pdfminer.high_level import extract_text
 
-api_key = "AIzaSyDYKhQRaQY38yBpH0ZBKpgwMpfSiABgE5c" 
+api_key = "GEMINI_API" 
 genai.configure(api_key=api_key)
 
 model = genai.GenerativeModel(
